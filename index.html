@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="login">
+        <fieldset form="login">
+            <legend id="title"> SIGN UP</legend><br><br>
+
+                <label for= "username"> Name:</label>
+                <input type="text" id="username" name="username" onblur='usernameb()'><br><br>
+
+                <label for= "username2"> Prefered username: </label>
+                <input type="text" id="username2" name="username2" onblur='userName()'><br><br>
+
+                <label for= "email"> Email Address: </label>
+                <input type="email" id="email" name="email"  onblur='emailb()'><br><br>
+
+                <label for= "password"> Password: </label>
+                <input type="password" id="password" name="password" onblur='pword()'><br><br>
+
+                <label for= "Address"> Home Address: </label>
+                <input type="text" id="HomeAddress" name="HomeAddress"  onblur='adress()'><br><br>
+                
+                <label for= "gender"> Select Gender:</label>
+                <select name="usergender" id="gender" onblur='gendr()'><br><br>
+                <option value="male"> male </option>
+                <option value="female"> female </option>
+                <option value="PFNT"> Prefer not to say </option>
+                </select><br><br>
+
+                <label for= "interest"> Comments: </label><br><br>
+                <textarea name="interest" id="interest" cols="70" rows="7" onblur='comments()'></textarea><br><br>
+                
+                
+
+                <input onclick="outputinfo()" type="submit" value="Submit" id="end"  >
+                <input onclick="resetinfo()" type="reset" value="reset" id="end">
+
+        </fieldset>
+        <fieldset id="outputfieldset" form="text">
+            <legend>User Login Output:</legend> <br> 
+            <div id="outputname"></div> <br> 
+            <div id="outputusername"></div> <br> 
+            <div id="outputgender"></div> <br> 
+            <div id="outputEmail"></div> <br> 
+            <div id="outputpassword"></div> <br> 
+            <div id="outputAddress"></div> <br> 
+            <div id="outputinterest"></div> <br> 
+        </fieldset>
+    </form>
+</body>
+<script>
+       function outputinfo(){
+        var U=document.getElementById("username").value;
+        var Us=document.getElementById("username2").value;
+        var Pword=document.getElementById("password").value;
+        var E=document.getElementById("email").value;
+        var Ad=document.getElementById("HomeAddress").value;
+        var C=document.getElementById("interest").value;
+        var G=document.getElementById("gender").value;
+
+        switch(G){
+            case "PFNT":
+                G="user prefers not to say their gender";
+                break;
+            case "male":
+                G="user gender is: male"
+                break;
+            default:
+                G="user gender is: female"
+                break;
+        }
+
+        document.getElementById("outputname").innerText = "Your Name is: " + U;
+        document.getElementById("outputusername").innerText = "Your Username is: " + Us;
+        document.getElementById("outputgender").innerText = G;
+        document.getElementById("outputpassword").innerText = "Your Password is: " + Pword;
+        document.getElementById("outputEmail").innerText = 'Your Email is: ' + E;
+        document.getElementById("outputAddress").innerText = "Your Home Address is: " + Ad;
+        document.getElementById("outputinterest").innerText = 'Your interests are: \n' + C;
+    }
+    
+
+function usernameb(){
+    var x = document.getElementById("username").value;
+    if (x == ""){
+        username.style.borderColor = "red";
+    }
+    else{
+        username.style.borderColor = "green";
+    }
+}
+function userName(){
+    var x = document.getElementById("username2").value;
+    if (x == ""){
+        username2.style.borderColor = "red";
+    }
+    else{
+        username2.style.borderColor = "green";
+    }
+}
+function emailb(){
+    var x = document.getElementById("email").value;
+    if (x == ""){
+        email.style.borderColor = "red";
+    }
+    else{
+        email.style.borderColor = "green";
+    }
+}
+function pword(){
+    var x = document.getElementById("password").value;
+    if (x == ""){
+        password.style.borderColor = "red";
+    }
+    else{
+        password.style.borderColor = "green";
+    }
+}
+function adress(){
+    var x = document.getElementById("HomeAddress").value;
+    if (x == ""){
+        HomeAddress.style.borderColor = "red";
+    }
+    else{
+        HomeAddress.style.borderColor = "green";
+    }
+}
+function comments(){
+    var x = document.getElementById("interest").value;
+    if (x == ""){
+        interest.style.borderColor = "red";
+    }
+    else{
+        interest.style.borderColor = "green";
+    }
+}
+function gendr(){
+    var x=document.getElementById("gender").value;
+    if (x == ""){
+        gender.style.borderColor = "red";
+    }
+    else{
+        gender.style.borderColor = "green";
+    }
+}
+ </script>
+
+</html>
